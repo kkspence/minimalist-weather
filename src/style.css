@@ -1,0 +1,51 @@
+.border {
+  border: solid gray 1px;
+  border-radius: 10px;
+  padding: 10px 10px 20px 20px;
+}
+.col-8 {
+  padding: 0px;
+}
+
+.col-4 {
+  text-align: right;
+  padding: 0px 24px;
+}
+h1 {
+  text-transform: capitalize;
+}
+h5 {
+  font-weight: normal;
+  text-transform: capitalize;
+}
+.mb-3 {
+  padding-top: 50px;
+}
+.col {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 50px;
+  padding: 20px;
+}
+.degrees {
+  text-align: center;
+  font-size: 40px;
+}
+.align-items-start {
+  margin-top: 0px;
+}
+
+p {
+  margin: 0px;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 10px;
+  font-style: italic;
+}
