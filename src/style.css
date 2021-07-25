@@ -3,11 +3,11 @@
   border-radius: 10px;
   padding: 10px 10px 20px 20px;
 }
-.col-8 {
+#current-city {
   padding: 0px;
 }
 
-.col-4 {
+#time {
   text-align: right;
   padding: 0px 24px;
 }
@@ -18,15 +18,15 @@ h5 {
   font-weight: normal;
   text-transform: capitalize;
 }
-.mb-3 {
-  padding-top: 50px;
+form {
+  padding-top: 75px;
 }
 .col {
   text-align: center;
   margin-top: 12px;
 }
 
-.card-title {
+#weather-favicon {
   text-align: center;
   font-size: 50px;
   padding: 20px;
@@ -35,7 +35,7 @@ h5 {
   text-align: center;
   font-size: 40px;
 }
-.align-items-start {
+#five-day-forecast {
   margin-top: 0px;
 }
 
