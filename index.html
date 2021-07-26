@@ -21,18 +21,27 @@
   <body>
     <div class="container" id="entire-app">
        <form id="searchbar-currentlocation"> <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Enter a city" id="city"></form>
+      <input type="text" class="form-control" placeholder="Enter a city" id="city" autocomplete="off"></form>
       <button class="btn btn-outline-secondary" type="button" id="current-location"><i class="fas fa-location-arrow"></i></button>
     </div>
 
     <div class="border">
-     <div class="container">
-  <div class="row">
-    <div class="col-8" id="current-city"><h1 id="city-input">Philadelphia</h1></div>
-    <div class="col-4" id="time"> <span id="current-date"> </span></div>
+      <div class="container" id="header">
+  <div class="row align-items-start">
+    <div class="col" id="left-panel">
+      <h1 id="city-input">Philadelphia</h1>
+         <p id="current-date"></p>
+     <p id="header-temp">90°F</p>
+   <p id="header-description">Mostly Sunny </p>
+      
+    </div>
+    <div class="col" id="right-panel">
+    <h1 id="header-favicon">⛈️</h1>
+    <p id="windspeed">4mph Wind</p>
+    <p id="humidity">30% Humid</p>
+    <p id="conversion"><a href="">F</a>|<a href="">C</a></p>
+    </div>
   </div>
-</div>
-  <h5>Currently 90°F/ Mostly Sunny</h5>
 
   <div class="row align-items-start" id="five-day-forecast">
       <div class="row row-cols-1 row-cols-md-5 g-4">

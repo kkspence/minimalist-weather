@@ -11,6 +11,14 @@ body {
   padding: 0px;
 }
 
+#left-panel {
+  text-align: left;
+}
+#right-panel {
+  text-align: right;
+  margin-right: 30px;
+}
+
 #time {
   text-align: right;
   padding: 0px 24px;
@@ -51,6 +59,7 @@ form {
 
 p {
   margin: 0px;
+  text-transform: capitalize;
 }
 
 footer {

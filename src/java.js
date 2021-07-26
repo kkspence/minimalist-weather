@@ -20,12 +20,20 @@ date.innerHTML = `${day} ${hours}:${minutes}`;
 // API Search
 function searchCityWeather(response) {
   console.log(response.data);
-  let h5temp = Math.round(response.data.main.temp);
-  let h5des = response.data.weather[0].description;
-  let displayCitySearch = document.querySelector("h1");
+  let htemp = Math.round(response.data.main.temp);
+  let hdes = response.data.weather[0].description;
+  let displayCitySearch = document.querySelector("#city-input");
   displayCitySearch.innerHTML = response.data.name;
-  let displayTodayWeather = document.querySelector("h5");
-  displayTodayWeather.innerHTML = `Currently ${h5temp}°F / ${h5des}`;
+  let displayTodayWeather = document.querySelector("#header-temp");
+  displayTodayWeather.innerHTML = `${htemp}°F`;
+  let displayTodayDesc = document.querySelector("#header-description");
+  displayTodayDesc.innerHTML = `${hdes}`;
+  let windspeed = Math.round(response.data.wind.speed);
+  let headerWind = document.querySelector("#windspeed");
+  headerWind.innerHTML = `Wind: ${windspeed}MPH`;
+  let humidity = Math.round(response.data.main.humidity);
+  let headerHumid = document.querySelector("#humidity");
+  headerHumid.innerHTML = `${humidity}% humidity`;
 }
 
 function cityForm(event) {
@@ -50,8 +58,16 @@ function showTempature(response) {
   let description = response.data.weather[0].description;
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${geoCity}`;
-  let h5 = document.querySelector("h5");
-  h5.innerHTML = `Currently ${currentTemp}°F / ${description} `;
+  let headerTemp = document.querySelector("#header-temp");
+  headerTemp.innerHTML = `${currentTemp}°F`;
+  let headerDesc = document.querySelector("#header-description");
+  headerDesc.innerHTML = `${description}`;
+  let windspeed = Math.round(response.data.wind.speed);
+  let headerWind = document.querySelector("#windspeed");
+  headerWind.innerHTML = `Wind: ${windspeed}MPH`;
+  let humidity = Math.round(response.data.main.humidity);
+  let headerHumid = document.querySelector("#humidity");
+  headerHumid.innerHTML = `${humidity}% humidity`;
 }
 
 function showCurrentPosition(position) {
