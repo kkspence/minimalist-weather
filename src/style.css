@@ -5,8 +5,8 @@ body {
 .border {
   border: solid gray 1px;
   border-radius: 10px;
-  padding: 10px 10px 40px 20px;
-  box-shadow: 5px 9px 9px 0px rgb(184, 216, 242, 0.63);
+  padding: 10px 10px 20px 20px;
+  box-shadow: 5px 9px 9px 0px lightgray;
 }
 #current-city {
   padding: 0px;
@@ -31,7 +31,7 @@ h5 {
   text-transform: capitalize;
 }
 #search-border {
-  box-shadow: 5px 9px 9px -3px rgb(184, 216, 242, 0.63);
+  box-shadow: 5px 9px 9px -3px lightgray;
 }
 form {
   padding-top: 75px;
