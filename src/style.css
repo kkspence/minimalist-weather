@@ -16,13 +16,12 @@ body {
 }
 #right-panel {
   text-align: right;
-  margin-right: 30px;
+  margin-right: 24px;
+}
+#city-input {
+  margin-bottom: 20px;
 }
 
-#time {
-  text-align: right;
-  padding: 0px 24px;
-}
 h1 {
   text-transform: capitalize;
 }
@@ -41,8 +40,10 @@ form {
 #weather-favicon {
   text-align: center;
   font-size: 50px;
-  padding: 20px;
+  padding: 5px;
+  margin: 0px;
 }
+
 .degrees {
   text-align: center;
   font-size: 40px;
