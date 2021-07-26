@@ -1,3 +1,7 @@
+body {
+  font-family: "Krub", sans-serif;
+}
+
 .border {
   border: solid gray 1px;
   border-radius: 10px;
@@ -34,6 +38,12 @@ form {
 .degrees {
   text-align: center;
   font-size: 40px;
+  font-weight: lighter;
+}
+.measure {
+  font-size: 20px;
+  position: relative;
+  bottom: 15px;
 }
 #five-day-forecast {
   margin-top: 0px;
