@@ -32,11 +32,12 @@ function searchCityWeather(response) {
   let headerIcon = document.querySelector("#header-icon");
 
   farenheitTemp = response.data.main.temp;
+  windspeedunit = response.data.wind.speed;
 
   displayCitySearch.innerHTML = response.data.name;
   displayTodayWeather.innerHTML = `${htemp}°F`;
   displayTodayDesc.innerHTML = `${hdes}`;
-  headerWind.innerHTML = `Wind: ${windspeed}MPH`;
+  headerWind.innerHTML = `${windspeed} mph`;
   headerHumid.innerHTML = `${humidity}% humidity`;
   headerIcon.setAttribute(
     "src",
@@ -75,11 +76,12 @@ function showTempature(response) {
   let headerIcon = document.querySelector("#header-icon");
 
   farenheitTemp = response.data.main.temp;
+  windspeedunit = response.data.wind.speed;
 
   h1.innerHTML = `${geoCity}`;
   headerTemp.innerHTML = `${currentTemp}°F`;
   headerDesc.innerHTML = `${description}`;
-  headerWind.innerHTML = `Wind: ${windspeed}MPH`;
+  headerWind.innerHTML = `${windspeed} mph`;
   headerHumid.innerHTML = `${humidity}% humidity`;
   headerIcon.setAttribute(
     "src",
@@ -107,13 +109,20 @@ function displayCelsiusTemp(event) {
   event.preventDefault();
   let celsiusTemp = Math.round(((farenheitTemp - 32) * 5) / 9);
   let headerTempCelsConversion = document.querySelector("#header-temp");
+  let kmsWindspeed = Math.round(windspeedunit * 0.44704);
+  let windspeed = document.querySelector("#windspeed");
+
   headerTempCelsConversion.innerHTML = `${celsiusTemp}°C`;
+  windspeed.innerHTML = `${kmsWindspeed} m/s`;
 }
 
 function returnToFarenheit(event) {
   event.preventDefault();
   let farenheitReturn = document.querySelector("#header-temp");
   farenheitReturn.innerHTML = `${Math.round(farenheitTemp)}°F`;
+
+  let windspeedReturn = document.querySelector("#windspeed");
+  windspeedReturn.innerHTML = `${Math.round(windspeedunit)} mph`;
 }
 let celsiuslink = document.querySelector("#celsius");
 celsiuslink.addEventListener("click", displayCelsiusTemp);
@@ -122,3 +131,4 @@ let farenheitlink = document.querySelector("#farenheit");
 farenheitlink.addEventListener("click", returnToFarenheit);
 
 let farenheitTemp = null;
+let windspeedunit = null;
