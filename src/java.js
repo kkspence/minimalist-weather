@@ -5,15 +5,28 @@ let hours = now.getHours();
 if (hours < 10) {
   hours = `0${hours}`;
 }
+
 let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
-
 let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+// 12 hour clock
+let getAorP = "";
+if (hours >= 0 && hours <= 12) {
+  getAorP = `am`;
+} else {
+  getAorP = `pm`;
+}
+
+if (hours > 12) {
+  hours = hours - 12;
+} else if (hours === 0) {
+  hours = 12;
+}
 let day = days[now.getDay()];
 
-date.innerHTML = `${day} ${hours}:${minutes}`;
+date.innerHTML = `${day} ${hours}:${minutes}${getAorP}`;
 // Card Day Format
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -52,7 +65,7 @@ function displayForecast(response) {
                 }@2x.png" alt=""></h5>
                 <p class="card-text">
                     <div class="degrees" id="day1">
-                  ${Math.round(forecastDay.temp.day)}°F
+                  ${Math.round(forecastDay.temp.day)}°
                   </div>
                 </p>
               </div>
@@ -86,9 +99,6 @@ function searchCityWeather(response) {
   let humidity = Math.round(response.data.main.humidity);
   let headerHumid = document.querySelector("#humidity");
   let headerIcon = document.querySelector("#header-icon");
-
-  farenheitTemp = response.data.main.temp;
-  windspeedunit = response.data.wind.speed;
 
   displayCitySearch.innerHTML = response.data.name;
   displayTodayWeather.innerHTML = `${htemp}°F`;
@@ -136,9 +146,6 @@ function showTempature(response) {
   let headerHumid = document.querySelector("#humidity");
   let headerIcon = document.querySelector("#header-icon");
 
-  farenheitTemp = response.data.main.temp;
-  windspeedunit = response.data.wind.speed;
-
   h1.innerHTML = `${geoCity}`;
   headerTemp.innerHTML = `${currentTemp}°F`;
   headerDesc.innerHTML = `${description}`;
@@ -165,32 +172,3 @@ function navigation(event) {
 
 let button = document.querySelector("#current-location");
 button.addEventListener("click", navigation);
-
-// Unit Conversion
-function displayCelsiusTemp(event) {
-  event.preventDefault();
-  let celsiusTemp = Math.round(((farenheitTemp - 32) * 5) / 9);
-  let headerTempCelsConversion = document.querySelector("#header-temp");
-  let kmsWindspeed = Math.round(windspeedunit * 0.44704);
-  let windspeed = document.querySelector("#windspeed");
-
-  headerTempCelsConversion.innerHTML = `${celsiusTemp}°C`;
-  windspeed.innerHTML = `${kmsWindspeed} m/s`;
-}
-
-function returnToFarenheit(event) {
-  event.preventDefault();
-  let farenheitReturn = document.querySelector("#header-temp");
-  farenheitReturn.innerHTML = `${Math.round(farenheitTemp)}°F`;
-
-  let windspeedReturn = document.querySelector("#windspeed");
-  windspeedReturn.innerHTML = `${Math.round(windspeedunit)} mph`;
-}
-let celsiuslink = document.querySelector("#celsius");
-celsiuslink.addEventListener("click", displayCelsiusTemp);
-
-let farenheitlink = document.querySelector("#farenheit");
-farenheitlink.addEventListener("click", returnToFarenheit);
-
-let farenheitTemp = null;
-let windspeedunit = null;

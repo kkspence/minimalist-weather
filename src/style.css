@@ -20,15 +20,17 @@ body {
   margin-right: 24px;
 }
 #city {
-  margin-bottom: 20px;
+  margin-bottom: 34px;
 }
-
+#header-temp {
+  font-size: 25px;
+  color: #ec6e4c;
+  opacity: 0.9;
+}
 #windspeed {
   text-transform: lowercase;
 }
-a:hover {
-  color: #ec6e4c;
-}
+
 h1 {
   text-transform: capitalize;
 }
