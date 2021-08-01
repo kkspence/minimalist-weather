@@ -131,38 +131,12 @@ form.addEventListener("submit", handleEnter);
 search("Philadelphia");
 
 // Geolocation button
-
-function showTempature(response) {
-  console.log(response.data);
-  let currentTemp = Math.round(response.data.main.temp);
-  let geoCity = response.data.name;
-  let description = response.data.weather[0].description;
-  let h1 = document.querySelector("h1");
-  let headerTemp = document.querySelector("#header-temp");
-  let headerDesc = document.querySelector("#header-description");
-  let windspeed = Math.round(response.data.wind.speed);
-  let headerWind = document.querySelector("#windspeed");
-  let humidity = Math.round(response.data.main.humidity);
-  let headerHumid = document.querySelector("#humidity");
-  let headerIcon = document.querySelector("#header-icon");
-
-  h1.innerHTML = `${geoCity}`;
-  headerTemp.innerHTML = `${currentTemp}°F`;
-  headerDesc.innerHTML = `${description}`;
-  headerWind.innerHTML = `${windspeed} mph`;
-  headerHumid.innerHTML = `${humidity}% humidity`;
-  headerIcon.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
-}
-
 function showCurrentPosition(position) {
   let lon = position.coords.longitude;
   let lat = position.coords.latitude;
   let myApiKey = `e6bf661a63a2a9f0aece972a71eb184a&units=imperial`;
   let apiGeoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${myApiKey}`;
-  axios.get(apiGeoUrl).then(showTempature);
+  axios.get(apiGeoUrl).then(searchCityWeather);
 }
 
 function navigation(event) {
@@ -170,5 +144,5 @@ function navigation(event) {
   navigator.geolocation.getCurrentPosition(showCurrentPosition);
 }
 
-let button = document.querySelector("button");
+let button = document.querySelector("#current-location");
 button.addEventListener("click", navigation);
