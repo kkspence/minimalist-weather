@@ -170,5 +170,5 @@ function navigation(event) {
   navigator.geolocation.getCurrentPosition(showCurrentPosition);
 }
 
-let button = document.querySelector("#current-location");
+let button = document.querySelector("button");
 button.addEventListener("click", navigation);
